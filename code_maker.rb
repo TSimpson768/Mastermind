@@ -12,9 +12,10 @@ class CodeMaker
     @secret_code = Code.new(secret)
   end
 
-  # TODO: Check a code against the private one. Return number of exact correct
+  # HACK?: Check a code against the private one. Return number of exact correct
   # Guesses and number of correct answers in wrong position
+  # This feels like I have an extra object
   def check_code(code)
-    
+    @secret_code.check_code(code)
   end
 end
