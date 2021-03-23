@@ -1,5 +1,7 @@
 # contains methods for outputing to the console
 
+require_relative 'code'
+
 module Display
 
   # TODO: Asks player for and returns a guess
@@ -16,13 +18,13 @@ module Display
   # Code -> null
   # TODO: Method for outputting a secret code
   def render_code(code)
-    
+    p code
   end
 
-  # [int, int] -> null
+  # int, int -> null
   # TODO: Method for rendering key pegs
-  def reder_pegs(pegs)
-    
+  def render_pegs(black_pegs, white_pegs)
+    p "Black #{black_pegs}, white #{white_pegs}"
   end
 
   private
@@ -31,7 +33,7 @@ module Display
   # Regex should only match if 4 digits between 1-6 were input by user
   def parse(input)
     if /^[1-6]{4}$/.match(input)
-      code = input.split(//)
+      code = input.split(//)[(0..3)]
       code.map!(&:to_i)
       Code.new(code)
     else

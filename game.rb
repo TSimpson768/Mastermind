@@ -1,7 +1,10 @@
 # Game contains methods for managing the flow of the game
-
+require_relative 'display'
+require_relative 'code_breaker'
+require_relative 'code_maker'
+require_relative 'code'
 class Game
-  include 'Display'
+  include Display
 
   # TODO: Create initial gamestate, of breaker player, maker player
   def initialize
@@ -14,7 +17,7 @@ class Game
   def play
     12.times do
       guess = input_guess
-      black_pegs, white_pegs = CodeMaker.check_code(guess)
+      black_pegs, white_pegs = @maker.check_code(guess)
       render_code(guess)
       render_pegs(black_pegs, white_pegs)
       if black_pegs == 4

@@ -1,4 +1,5 @@
 # Contains methods for generating and checking a randomized code
+require_relative 'code'
 
 class CodeMaker
 
