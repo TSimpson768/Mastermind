@@ -16,7 +16,7 @@ class Game
   # code and printing result.
   def play
     12.times do
-      guess = input_guess
+      guess = @breaker.make_guess
       black_pegs, white_pegs = @maker.check_code(guess)
       render_code(guess)
       render_pegs(black_pegs, white_pegs)
