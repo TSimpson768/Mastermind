@@ -42,7 +42,6 @@ class Code
     guess.each do |peg|
       if peg!=0 && secret.include?(peg)
         num_white += 1
-        binding.pry
         secret = remove_peg(secret, peg)
       end
     end
