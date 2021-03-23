@@ -1,4 +1,4 @@
-
+require 'pry'
 # Contains an individual code
 class Code
 
@@ -25,12 +25,12 @@ class Code
   # TODO; Returns number of exact matches between this code and given code
   def black_pegs(guess, secret)
     num_black = 0
-    guess.pegs.each_with_index do |peg, index|
+    guess.each_with_index do |peg, index|
       next unless peg == secret[index]
 
       num_black += 1
-      secret[index] = null
-      guess[index] = null
+      secret[index] = 0
+      guess[index] = 0
     end
     num_black
   end
@@ -40,8 +40,9 @@ class Code
   def white_pegs(guess, secret)
     num_white = 0
     guess.each do |peg|
-      if peg && secret.include?(peg)
+      if peg!=0 && secret.include?(peg)
         num_white += 1
+        binding.pry
         secret = remove_peg(secret, peg)
       end
     end
@@ -51,7 +52,7 @@ class Code
   # array , int -> array
   # Returns the array with the given value removed
   def remove_peg(pegs, peg)
-    index = pegs.bsearch_index { |speg| speg == peg }
+    index = pegs.find_index(peg)
     pegs.delete_at(index)
     pegs
   end
