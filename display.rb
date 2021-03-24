@@ -57,5 +57,10 @@ module Display
     puts 'Invalid input. Please enter a 4 number code, with each digit between 1-6.'
     input_guess
   end
+
+  def print_instructions
+    puts 'Placeholeder. Press the any key to continiue...'
+    gets
+  end
   
 end

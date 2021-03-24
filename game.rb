@@ -5,17 +5,18 @@ require_relative 'code_maker'
 require_relative 'code'
 class Game
   include Display
-
-  # TODO: Create initial gamestate, of breaker player, maker player
-  def initialize
-    human_breaker?
-    @maker = CodeMaker.new(Code.generate_code)
-    @breaker = CodeBreaker.new
-  end
-
   # TODO: Loop 12 times of getting a guess from breaker, checking against the secret
   # code and printing result.
   def play
+    menu
+
+    if human_breaker?
+      @maker = CodeMaker.new(Code.generate_code)
+      @breaker = CodeBreaker.new
+    else
+      @maker = HumanMaker(code)
+      @breaker = ComputerBreaker
+    end
     12.times do
       guess = @breaker.make_guess
       black_pegs, white_pegs = @maker.check_code(guess)
@@ -26,5 +27,14 @@ class Game
         break
       end
     end
+  end
+
+  private
+
+  # A main menu
+  def menu
+    puts "Welcome to Mastermind!\n Enter help to read the instructions\n Press any key to start!"
+    input = gets
+    print_instructions if input == "help\n"
   end
 end
