@@ -4,13 +4,9 @@ require_relative 'code'
 class CodeMaker
 
   # TODO: Generate an initial code
-  def initialize
-    prng = Random.new
-    secret = []
-    4.times do
-      secret.push(prng.rand(1..6))
-    end
-    @secret_code = Code.new(secret)
+  def initialize(code)
+
+    @secret_code = code
   end
 
   # HACK?: Check a code against the private one. Return number of exact correct
