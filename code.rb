@@ -8,6 +8,16 @@ class Code
 
   attr_reader :pegs
 
+  # Generate a random code
+  def self.generate_code
+    prng = Random.new
+    secret = []
+    4.times do
+      secret.push(prng.rand(1..6))
+    end
+    Code.new(secret)
+  end
+
   # Code -> [int, int]
   # TODO: Takes a code to compare against, and returns number of black (correct color + pos)
   # and white (correct color only) pegs to award.
