@@ -4,6 +4,18 @@ require_relative 'code'
 
 module Display
 
+  # TODO: Retruns true if player is breaking the code, false if generating
+  def human_breaker?
+    puts "Do you want to\n1. play as the code breaker, or\n2. do you want to make a code for the computer to break?"
+    input = gets.to_i
+    case input
+    when 1 then true
+    when 2 then false
+    else
+      puts 'Try again'
+      human_breaker?
+    end
+  end
   # TODO: Asks player for and returns a guess
   def input_guess
     puts 'Guess the code!'

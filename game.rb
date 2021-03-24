@@ -8,6 +8,7 @@ class Game
 
   # TODO: Create initial gamestate, of breaker player, maker player
   def initialize
+    human_breaker?
     @maker = CodeMaker.new(Code.generate_code)
     @breaker = CodeBreaker.new
   end
