@@ -30,9 +30,9 @@ class Game
   
   # A main menu
   def self.menu
-    puts "Welcome to Mastermind!\n Do you want to\n1. Start a new game or \n2. Read the instructions"
+    puts "Welcome to Mastermind!\n Enter help to read the instructions\n Press any key to start!"
     input = gets.to_i
-    print_instructions if input == 2
+    print_instructions if input == "help\n"
     game = Game.new
     game.play
   end
