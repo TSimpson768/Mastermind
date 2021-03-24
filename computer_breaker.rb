@@ -1,0 +1,3 @@
+class ComputerBreaker < CodeBreaker
+  
+end
