@@ -27,13 +27,4 @@ class Game
       end
     end
   end
-  
-  # A main menu
-  def self.menu
-    puts "Welcome to Mastermind!\n Enter help to read the instructions\n Press any key to start!"
-    input = gets.to_i
-    print_instructions if input == "help\n"
-    game = Game.new
-    game.play
-  end
 end
