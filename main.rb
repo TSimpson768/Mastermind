@@ -1,4 +1,5 @@
 require_relative 'game'
 
-game = Game.new
-game.play
+Game.menu
+
+

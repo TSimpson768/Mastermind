@@ -28,4 +28,12 @@ class Game
     end
   end
   
+  # A main menu
+  def self.menu
+    puts "Welcome to Mastermind!\n Do you want to\n1. Start a new game or \n2. Read the instructions"
+    input = gets.to_i
+    print_instructions if input == 2
+    game = Game.new
+    game.play
+  end
 end
