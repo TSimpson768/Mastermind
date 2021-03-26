@@ -62,5 +62,14 @@ module Display
     puts 'Placeholeder. Press the any key to continiue...'
     gets
   end
+
+  # Prints the result of the game
+  def game_over(won)
+    if won
+      puts 'The code has been broken! Game over'
+    else
+      puts 'The code could not be broken! Game over'
+    end
+  end
   
 end

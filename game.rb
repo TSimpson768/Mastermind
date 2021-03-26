@@ -17,15 +17,13 @@ class Game
       @maker = HumanMaker(code)
       @breaker = ComputerBreaker
     end
+    won = false
     12.times do
-      guess = @breaker.make_guess(@maker)
-      
-      if guess
-        puts "YOU'RE WINNER!"
-        break
-      end
+      won = @breaker.make_guess(@maker)
+      break if won
     end
   end
+  game_over(won)
 
   private
 
