@@ -9,21 +9,15 @@ class Game
   # code and printing result.
   def play
     menu
-
-    if human_breaker?
-      @maker = CodeMaker.new(Code.generate_code)
-      @breaker = CodeBreaker.new
-    else
-      @maker = HumanMaker(code)
-      @breaker = ComputerBreaker
-    end
+    create_players
     won = false
     12.times do
       won = @breaker.make_guess(@maker)
       break if won
     end
+    game_over(won)
   end
-  game_over(won)
+  
 
   private
 
@@ -32,5 +26,16 @@ class Game
     puts "Welcome to Mastermind!\n Enter help to read the instructions\n Press any key to start!"
     input = gets
     print_instructions if input == "help\n"
+  end
+
+  # Creates Objects for each player
+  def create_players
+    if human_breaker?
+      @maker = CodeMaker.new(Code.generate_code)
+      @breaker = CodeBreaker.new
+    else
+      @maker = HumanMaker(code)
+      @breaker = ComputerBreaker
+    end
   end
 end
