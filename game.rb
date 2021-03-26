@@ -20,11 +20,10 @@ class Game
     12.times do
       guess = @breaker.make_guess(@maker)
       
-      if black_pegs == 4
+      if guess
         puts "YOU'RE WINNER!"
         break
       end
-      @breaker.update_possible_solutions(black_pegs, white_pegs)
     end
   end
 

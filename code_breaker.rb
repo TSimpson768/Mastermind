@@ -16,14 +16,15 @@ class CodeBreaker
   # AI's brain
   def make_guess(maker)
     guess = input_guess
-    black_pegs, white_pegs = maker.check_code(guess)
+    @black_pegs, @white_pegs = maker.check_code(guess)
     render_code(guess)
-    render_pegs(black_pegs, white_pegs)
+    render_pegs(@black_pegs, @white_pegs)
     broken?
   end
 
   private
+
   def broken?
-    false
+    @black_pegs == 4
   end
 end
