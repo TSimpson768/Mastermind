@@ -18,14 +18,13 @@ class Game
       @breaker = ComputerBreaker
     end
     12.times do
-      guess = @breaker.make_guess
-      black_pegs, white_pegs = @maker.check_code(guess)
-      render_code(guess)
-      render_pegs(black_pegs, white_pegs)
+      guess = @breaker.make_guess(@maker)
+      
       if black_pegs == 4
         puts "YOU'RE WINNER!"
         break
       end
+      @breaker.update_possible_solutions(black_pegs, white_pegs)
     end
   end
 
