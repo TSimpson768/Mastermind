@@ -16,13 +16,20 @@ class CodeBreaker
   # AI's brain
   def make_guess(maker)
     guess = input_guess
+    check_guess(maker, guess)
+  end
+
+  private
+
+  # CodeMaker, code -> Boolean
+  # Checks the given guess against secret code, and returns true if correct, false if not
+  # Exists to avoid repeating code in ComputerBreaker
+  def check_guess(maker, guess)
     @black_pegs, @white_pegs = maker.check_code(guess)
     render_code(guess)
     render_pegs(@black_pegs, @white_pegs)
     broken?
   end
-
-  private
 
   def broken?
     @black_pegs == 4
