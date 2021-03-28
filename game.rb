@@ -17,7 +17,6 @@ class Game
     end
     game_over(won)
   end
-  
 
   private
 
@@ -34,8 +33,8 @@ class Game
       @maker = CodeMaker.new(Code.generate_code)
       @breaker = CodeBreaker.new
     else
-      @maker = HumanMaker(code)
-      @breaker = ComputerBreaker
+      @maker = HumanMaker.new
+      @breaker = ComputerBreaker.new
     end
   end
 end
