@@ -65,7 +65,27 @@ module Display
   end
 
   def print_instructions
-    puts 'Placeholeder. Press the any key to continiue...'
+    puts 'This is mastermind! In this game, one player makes a 4 digit code, where'
+    puts 'each digit has 6 possible values'
+    (1..6).each { |peg| render_peg(peg) }
+    puts
+    puts 'The other player has to guess the code within 12 attempts. After each attempt'
+    puts 'the code setter awards it a number of pegs. A black peg ⚫ indicates one digit'
+    puts 'has a correct value and is in the correct position, and a white peg ⚪ indicates'
+    puts 'a peg has the correct value, but is in the wrong place.'
+    puts
+    puts 'For example, if the secret code was'
+    render_code(Code.new([5, 6, 6, 2]))
+    puts
+    puts 'and the guess'
+    render_code(Code.new([5, 6, 5, 6]))
+    puts
+    puts 'Was made, the guess would recieve ⚫⚫⚪. This is as the values in position 1 and 2 '
+    puts 'match exactly, and the value in position 3 of the secret code matches that in position'
+    puts '4 of the guess. Note that position 3 of the guess matches position 1 of the secret, but'
+    puts 'no peg is awarded, as this value has already been matched.'
+
+    puts 'Ready to play? Press the any key to continue...'
     gets
   end
 
