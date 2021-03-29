@@ -13,7 +13,9 @@ class HumanMaker < CodeMaker
   # Takes a code to check against secret code, and returns number of black + white pegs
   def check_code(code)
     black_pegs, white_pegs = super(code)
+    print 'Your Code:  '
     render_code(@secret_code)
+    print "\nSecret Code:"
     render_code(code)
     input_pegs(black_pegs, white_pegs)
     [black_pegs, white_pegs]
@@ -25,7 +27,7 @@ class HumanMaker < CodeMaker
   # Takes input of number of pegs to award guess, and ensures correct
   # number is given. Gives some interactivity when computer is solving
   def input_pegs(black_pegs, white_pegs)
-    puts 'How many pegs should be awarded?'
+    puts "\nHow many pegs should be awarded?"
     input_black, input_white = parse_pegs()
     if input_black != black_pegs && input_white != white_pegs
       puts 'CHEATER!'

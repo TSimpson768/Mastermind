@@ -31,13 +31,18 @@ module Display
   # TODO: Method for outputting a secret code
   def render_code(code)
     code.pegs.each { |peg| render_peg(peg) }
-    puts
   end
 
   # int, int -> null
   # TODO: Method for rendering key pegs
   def render_pegs(black_pegs, white_pegs)
-    p "Black #{black_pegs}, white #{white_pegs}"
+    black_pegs.times do
+      print '⚫'
+    end
+    white_pegs.times do
+      print '⚪'
+    end
+    puts
   end
 
   private

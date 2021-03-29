@@ -25,7 +25,7 @@ class Game
 
   # A main menu
   def menu
-    puts "Welcome to Mastermind!\n Enter help to read the instructions\n Press any key to start!"
+    puts "👋👋Welcome to Mastermind!\n Enter help to read the instructions\n Press any key to start!"
     input = gets
     print_instructions if input == "help\n"
   end
