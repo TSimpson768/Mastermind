@@ -76,6 +76,10 @@ module Display
   # Int -> nil
   # Puts a string representation of a single peg to the console
   def render_peg(peg)
-    print "\e[4#{peg}m  #{peg}  \e[0m"
+    if peg == 6
+      print "\e[47m\e[30m  #{peg}  \e[0m"
+    else
+      print "\e[4#{peg}m  #{peg}  \e[0m"
+    end
   end
 end
