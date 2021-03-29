@@ -3,6 +3,8 @@ require_relative 'display'
 # Defines methods required for a human setting the secret code
 class HumanMaker < CodeMaker
   include Display
+  
+  
   def initialize
     super(input_guess)
   end
@@ -34,7 +36,7 @@ class HumanMaker < CodeMaker
 
   def parse_pegs
     pegs = gets
-    if /^[1-4]{2}$/.match?(pegs)
+    if /^[0-4]{2}$/.match?(pegs)
       pegs.split(//)[(0..1)].map!(&:to_i)
     else
       puts 'Invalid input.'

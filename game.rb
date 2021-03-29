@@ -3,6 +3,9 @@ require_relative 'display'
 require_relative 'code_breaker'
 require_relative 'code_maker'
 require_relative 'code'
+require_relative 'human_maker'
+require_relative 'computer_breaker'
+
 class Game
   include Display
   # TODO: Loop 12 times of getting a guess from breaker, checking against the secret
