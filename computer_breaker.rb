@@ -1,8 +1,10 @@
+# frozen_string_literal: true
+
 # Class for a computer code breaker. Solves the game by picking a random possible code
 # and deterimines what code matches the awarded pegs
 
 class ComputerBreaker < CodeBreaker
-  VALID_RANGE = (1..6)
+  VALID_RANGE = (1..6).freeze
   def initialize
     super
     create_valid_guesses

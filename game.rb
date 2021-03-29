@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # Game contains methods for managing the flow of the game
 require_relative 'display'
 require_relative 'code_breaker'

@@ -1,9 +1,10 @@
+# frozen_string_literal: true
+
 # contains methods for outputing to the console
 
 require_relative 'code'
 
 module Display
-
   # TODO: Retruns true if player is breaking the code, false if generating
   def human_breaker?
     puts "Do you want to\n1. play as the code breaker, or\n2. do you want to make a code for the computer to break?"
@@ -16,15 +17,16 @@ module Display
       human_breaker?
     end
   end
+
   # TODO: Asks player for and returns a guess
   def input_guess
     puts 'Guess the code!'
-  begin
-    input = gets
-    parse(input)
-  rescue NoMethodError
-    input_error
-  end
+    begin
+      input = gets
+      parse(input)
+    rescue NoMethodError
+      input_error
+    end
   end
 
   # Code -> null

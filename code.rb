@@ -1,7 +1,8 @@
+# frozen_string_literal: true
+
 require 'pry'
 # Contains an individual code
 class Code
-
   def initialize(pegs)
     @pegs = pegs
   end
@@ -50,7 +51,7 @@ class Code
   def white_pegs(guess, secret)
     num_white = 0
     guess.each do |peg|
-      if peg!=0 && secret.include?(peg)
+      if peg != 0 && secret.include?(peg)
         num_white += 1
         secret = remove_peg(secret, peg)
       end

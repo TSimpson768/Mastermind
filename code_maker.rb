@@ -1,11 +1,11 @@
+# frozen_string_literal: true
+
 # Contains methods for generating and checking a randomized code
 require_relative 'code'
 
 class CodeMaker
-
   # TODO: Generate an initial code
   def initialize(code)
-
     @secret_code = code
   end
 
