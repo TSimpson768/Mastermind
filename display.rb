@@ -25,12 +25,13 @@ module Display
   rescue NoMethodError
     input_error
   end
-  
   end
+
   # Code -> null
   # TODO: Method for outputting a secret code
   def render_code(code)
-    p code
+    code.pegs.each { |peg| render_peg(peg) }
+    puts
   end
 
   # int, int -> null
@@ -71,5 +72,10 @@ module Display
       puts 'The code could not be broken! Game over'
     end
   end
-  
+
+  # Int -> nil
+  # Puts a string representation of a single peg to the console
+  def render_peg(peg)
+    print "\e[4#{peg}m  #{peg}  \e[0m"
+  end
 end
