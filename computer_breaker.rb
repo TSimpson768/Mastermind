@@ -17,7 +17,11 @@ class ComputerBreaker < CodeBreaker
     guess = choose_guess
     @num_guesses += 1
     check_guess(guess)
-
+    print 'Your Code:  '
+    render_code(@secret)
+    print "\nSecret Code:"
+    render_code(guess)
+    input_pegs(@black_pegs, @white_pegs)
     remove_invalid_codes(guess)
     broken?
   end
@@ -52,5 +56,25 @@ class ComputerBreaker < CodeBreaker
   def remove_invalid_codes(guess)
     @valid_codes.filter! { |code| code.check_code(guess) == [@black_pegs, @white_pegs] }
     puts "#{@valid_codes.count} possible codes left"
+  end
+
+  def input_pegs(black_pegs, white_pegs)
+    puts "\nHow many pegs should be awarded?"
+    input_black, input_white = parse_pegs
+    if input_black != black_pegs && input_white != white_pegs
+      puts 'CHEATER!'
+      puts "black #{input_black} 1= #{black_pegs}, white #{input_white} != #{white_pegs}"
+      input_pegs(black_pegs, white_pegs)
+    end
+  end
+
+  def parse_pegs
+    pegs = gets
+    if /^[0-4]{2}$/.match?(pegs)
+      pegs.split(//)[(0..1)].map!(&:to_i)
+    else
+      puts 'Invalid input.'
+      parse_pegs
+    end
   end
 end

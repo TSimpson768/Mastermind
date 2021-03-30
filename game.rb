@@ -41,4 +41,3 @@ class Game
     end
   end
 end
-Re

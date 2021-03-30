@@ -17,6 +17,8 @@ class CodeBreaker
   def make_guess
     guess = input_guess
     check_guess(guess)
+    render_code(guess)
+    render_pegs(@black_pegs, @white_pegs)
   end
 
   private
@@ -26,8 +28,6 @@ class CodeBreaker
   # Exists to avoid repeating code in ComputerBreaker
   def check_guess(guess)
     @black_pegs, @white_pegs = @secret.check_code(guess)
-    render_code(guess)
-    render_pegs(@black_pegs, @white_pegs)
     broken?
   end
 
