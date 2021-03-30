@@ -2,19 +2,21 @@
 
 # Class for a computer code breaker. Solves the game by picking a random possible code
 # and deterimines what code matches the awarded pegs
-
+require_relative 'display'
 class ComputerBreaker < CodeBreaker
+  include Display
   VALID_RANGE = (1..6).freeze
   def initialize
     super
     create_valid_guesses
     @num_guesses = 0
+    @secret = input_guess
   end
 
-  def make_guess(maker)
+  def make_guess
     guess = choose_guess
     @num_guesses += 1
-    check_guess(maker, guess)
+    check_guess(guess)
 
     remove_invalid_codes(guess)
     broken?

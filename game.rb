@@ -35,11 +35,10 @@ class Game
   # Creates Objects for each player
   def create_players
     if human_breaker?
-      @maker = CodeMaker.new(Code.generate_code)
       @breaker = CodeBreaker.new
     else
-      @maker = HumanMaker.new
       @breaker = ComputerBreaker.new
     end
   end
 end
+Re
