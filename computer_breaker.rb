@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
+require_relative 'display'
 # Class for a computer code breaker. Solves the game by picking a random possible code
 # and deterimines what code matches the awarded pegs
-require_relative 'display'
 class ComputerBreaker < CodeBreaker
   include Display
   VALID_RANGE = (1..6).freeze
@@ -61,11 +61,11 @@ class ComputerBreaker < CodeBreaker
   def input_pegs(black_pegs, white_pegs)
     puts "\nHow many pegs should be awarded?"
     input_black, input_white = parse_pegs
-    if input_black != black_pegs && input_white != white_pegs
-      puts 'CHEATER!'
-      puts "black #{input_black} 1= #{black_pegs}, white #{input_white} != #{white_pegs}"
-      input_pegs(black_pegs, white_pegs)
-    end
+    return unless input_black != black_pegs && input_white != white_pegs
+
+    puts 'CHEATER!'
+    puts "black #{input_black} 1= #{black_pegs}, white #{input_white} != #{white_pegs}"
+    input_pegs(black_pegs, white_pegs)
   end
 
   def parse_pegs

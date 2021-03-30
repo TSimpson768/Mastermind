@@ -3,11 +3,10 @@
 # Game contains methods for managing the flow of the game
 require_relative 'display'
 require_relative 'code_breaker'
-require_relative 'code_maker'
 require_relative 'code'
-require_relative 'human_maker'
 require_relative 'computer_breaker'
 
+# Game is the class that starts the game and creates the object containing the gamestate
 class Game
   include Display
   # TODO: Loop 12 times of getting a guess from breaker, checking against the secret
@@ -34,10 +33,10 @@ class Game
 
   # Creates Objects for each player
   def create_players
-    if human_breaker?
-      @breaker = CodeBreaker.new
-    else
-      @breaker = ComputerBreaker.new
-    end
+    @breaker = if human_breaker?
+                 CodeBreaker.new
+               else
+                 ComputerBreaker.new
+               end
   end
 end

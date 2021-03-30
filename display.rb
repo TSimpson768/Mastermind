@@ -1,9 +1,7 @@
 # frozen_string_literal: true
 
-# contains methods for outputing to the console
-
 require_relative 'code'
-
+# contains methods for outputing to the console, intended to be shared in multiple classes
 module Display
   # TODO: Retruns true if player is breaking the code, false if generating
   def human_breaker?
