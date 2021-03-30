@@ -66,6 +66,7 @@ module Display
     input_guess
   end
 
+  # This will annoy rubocop, and I don't care. I am an unrepentant RuboCriminal!
   def print_instructions
     puts 'This is mastermind! In this game, one player makes a 4 digit code, where'
     puts 'each digit has 6 possible values'

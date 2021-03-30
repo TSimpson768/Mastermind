@@ -17,7 +17,7 @@ class Game
     create_players
     won = false
     12.times do
-      won = @breaker.make_guess(@maker)
+      won = @breaker.make_guess
       break if won
     end
     game_over(won)
