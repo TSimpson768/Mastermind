@@ -20,7 +20,7 @@ class Code
   end
 
   # Code -> [int, int]
-  # TODO: Takes a code to compare against, and returns number of black (correct color + pos)
+  # Takes a code to compare against, and returns number of black (correct color + pos)
   # and white (correct color only) pegs to award.
   def check_code(code)
     guess = code.pegs.clone
@@ -33,7 +33,7 @@ class Code
   private
 
   # Code -> int
-  # TODO; Returns number of exact matches between this code and given code
+  # Returns number of exact matches between this code and given code
   def black_pegs(guess, secret)
     num_black = 0
     guess.each_with_index do |peg, index|
@@ -47,7 +47,7 @@ class Code
   end
 
   # Code -> int
-  # TODO; Return number of matched colored pegs between this code and given code
+  # Return number of matched colored pegs between this code and given code
   def white_pegs(guess, secret)
     num_white = 0
     guess.each do |peg|

@@ -3,17 +3,15 @@
 # Contains methods for interacting with a human code breaker
 require_relative 'display'
 
-# CodeBreaker represents a human code breaker player, and all info about their game so far
+# CodeBreaker represents playing with a human code breaker player, and all info about their game so far
 class CodeBreaker
   include Display
-  # TODO: Initialize any required class variables
+  # Initialize any required class variables
   def initialize
     @secret = Code.generate_code
   end
 
-  # TODO: Move (ruby) code to check (secret) code in here, and save the black pegs and white pegs
-  # to instance variables. This is so they are in the object without having to expose any of the
-  # AI's brain
+  # Logic for taking a guess and returning the result
   def make_guess
     guess = input_guess
     check_guess(guess)
