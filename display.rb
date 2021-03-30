@@ -3,7 +3,7 @@
 require_relative 'code'
 # contains methods for outputing to the console, intended to be shared in multiple classes
 module Display
-  # TODO: Retruns true if player is breaking the code, false if generating
+  # Retruns true if player is breaking the code, false if generating
   def human_breaker?
     puts "Do you want to\n1. play as the code breaker, or\n2. do you want to make a code for the computer to break?"
     input = gets.to_i
@@ -18,7 +18,7 @@ module Display
 
   # TODO: Asks player for and returns a guess
   def input_guess
-    puts 'Guess the code!'
+    puts 'Input a code!'
     begin
       input = gets
       parse(input)
