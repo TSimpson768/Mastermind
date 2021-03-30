@@ -8,7 +8,6 @@ class CodeBreaker
   include Display
   # TODO: Initialize any required class variables
   def initialize
-    @previous_guesses = []
   end
 
   # TODO: Move (ruby) code to check (secret) code in here, and save the black pegs and white pegs
